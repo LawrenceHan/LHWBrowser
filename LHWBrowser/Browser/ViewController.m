@@ -392,14 +392,14 @@ typedef struct _Input {
              [self presentViewController:historyAlertController animated:YES completion:nil];
          }];
         
-        /*
+        
         UIAlertAction *mobileModeAction = [UIAlertAction
                                            actionWithTitle:@"Switch To Mobile Mode"
                                            style:UIAlertActionStyleDefault
                                            handler:^(UIAlertAction *action)
                                            {
-                                               NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Mozilla/5.0 (iPad; CPU OS 10_0 like Mac OS X) AppleWebKit/602.1.38 (KHTML, like Gecko) Version/10.0 Mobile/14A300 Safari/602.1", @"UserAgent", nil];
-                                               [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+//                                               NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Mozilla/5.0 (iPhone; CPU OS 10_0 like Mac OS X) AppleWebKit/602.1.38 (KHTML, like Gecko) Version/10.0 Mobile/14A300 Safari/602.1", @"UserAgent", nil];
+                                               [[NSUserDefaults standardUserDefaults] registerDefaults:nil];
                                                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"MobileMode"];
                                                [[NSUserDefaults standardUserDefaults] synchronize];
                                                
@@ -426,6 +426,7 @@ typedef struct _Input {
                                                    });
                                                }];
                                            }];
+        
         UIAlertAction *desktopModeAction = [UIAlertAction
                                             actionWithTitle:@"Switch To Desktop Mode"
                                             style:UIAlertActionStyleDefault
@@ -458,7 +459,7 @@ typedef struct _Input {
                                                         
                                                     });
                                                 }];
-                                            }]; */
+                                            }];
         
         UIAlertAction *scalePageToFitAction = [UIAlertAction
                                                actionWithTitle:@"Scale Pages to Fit"
@@ -548,12 +549,12 @@ typedef struct _Input {
         [alertController addAction:loadHomePageAction];
         [alertController addAction:setHomePageAction];
         
-        /*
+        
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"MobileMode"]) {
             [alertController addAction:desktopModeAction];
         } else {
             [alertController addAction:mobileModeAction];
-        } */
+        }
         
         if ([self.webview scalesPageToFit]) {
             [alertController addAction:stopScalePageToFitAction];
